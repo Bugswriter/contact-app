@@ -1,18 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+		<Header />
+		<AddContact v-on:add-contact="addContact" />
+		<hr/>
+		<div class="container">
+			<ul>
+				<li v-for="contact in contacts" v-bind:key="contact['.key']">{{ contact.name }} - {{ contact.contact }}</li>
+			</ul>
+		</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header'
+import AddContact from './components/AddContact'
+import { contactsRef } from './firebase'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+		Header,
+		AddContact
+  },
+	data() {
+		return {
+			contacts: {}
+		}
+	},
+	firebase: {
+		contacts: contactsRef
+	},
+	methods: {
+		addContact(newContact){
+			contactsRef.push(newContact).then((data) => {
+				console.log("Data Submited: " + data.key)
+			}).catch((err) => {
+				console.log(err);
+			});
+		}
+	}
 }
 </script>
 
