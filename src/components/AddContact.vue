@@ -1,13 +1,15 @@
 <template>
-	<form @submit.prevent="addContact">
-		<div class="form-group">
-			<input type="text" v-model='name' placeholder="Name">
-		</div>
-		<div class="form-group">
-			<input type="text" v-model='number' placeholder="Phone Number">
-		</div>
-		<input type="submit" class="btn btn-primary" value="Add Number +">
-	</form>
+	<div>
+		<form @submit.prevent="addContact">
+			<div class="form-group">
+				<input type="text" v-model='name' placeholder="Name">
+			</div>
+			<div class="form-group">
+				<input type="text" v-model='number' placeholder="Phone Number">
+			</div>
+			<input type="submit" class="btn btn-primary" value="Add Number +">
+		</form>
+	</div>
 </template>
 
 

@@ -1,7 +1,6 @@
 <template>
-	<header class="header">
-		<h3>My Contacts App</h3>
-		<hr/>
+	<header>
+		<h3>my contacts</h3>
 	</header>
 </template>
 
@@ -10,4 +9,15 @@ export default {
 	name: "Header"
 }
 </script>
+
+<style scoped>
+header{
+	text-align: center;
+	background: black;
+	padding: 5px;
+	color: white;
+	margin-bottom: 15px;
+}
+
+</style>
 

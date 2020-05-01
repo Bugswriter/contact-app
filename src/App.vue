@@ -1,27 +1,27 @@
 <template>
-  <div id="app">
+	<div id="app">
 		<Header />
-		<AddContact v-on:add-contact="addContact" />
-		<hr/>
-		<div class="container">
-			<ul>
-				<li v-for="contact in contacts" v-bind:key="contact['.key']">{{ contact.name }} - {{ contact.contact }}</li>
-			</ul>
-		</div>
-  </div>
+			<AddContact v-on:add-contact="addContact" />
+			<hr/>
+			<ViewContact v-bind:contacts="contacts" />
+	</div>
 </template>
+
 
 <script>
 import Header from './components/Header'
 import AddContact from './components/AddContact'
+import ViewContact from './components/ViewContact'
 import { contactsRef } from './firebase'
 
+
 export default {
-  name: 'App',
-  components: {
+	name: 'App',
+	components: {
 		Header,
-		AddContact
-  },
+		AddContact,
+		ViewContact
+	},
 	data() {
 		return {
 			contacts: {}
@@ -44,11 +44,12 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	margin: 0 auto;
+	max-width: 500px;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
 }
 </style>
